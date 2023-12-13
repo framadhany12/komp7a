@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\AuthController;
 
 /*
@@ -16,6 +17,7 @@ use App\Http\Controllers\AuthController;
 */
 
 Route::get('/login', [AuthController::class, 'index'])->name('auth.login');
+Route::get('/register', [AuthController::class, 'regis']);
 
 Route::get('/', function () {
     return redirect(route('auth.login'));
@@ -23,3 +25,5 @@ Route::get('/', function () {
 
 
 Route::resource('/student', StudentController::class);
+Route::resource('/mahasiswa', MahasiswaController::class);
+Route::get('/index', [StudentController::class, 'index2']);
